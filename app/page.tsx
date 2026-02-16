@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Gérardo AMOUZOUVI - Portfolio",
-  description: "This is Gérardo AMOUZOUVI's portfolio",
+  description: "This is Gérardo AMOUZOUVI's portfolio website, showcasing projects, skills, and contact information.",
   keywords: ["Gérardo AMOUZOUVI","gerardo amouzouvi","gerardo amouzouvi portfolio","gerardo amouzouvi projects",
   ],
 
@@ -32,8 +32,12 @@ export const metadata: Metadata = {
 };
 
 
+export const dynamic = "force-static";
 export default async function ProjectsPage() {
-  const repos = await getGitHubRepos();
+
+  //const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/repos.json`);
+  const res = await fetch("/repos.json");
+  const repos = await res.json();
 
   return (
     <div className="p-4">

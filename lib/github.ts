@@ -14,8 +14,16 @@ export async function getGitHubRepos() {
                 next: { revalidate: 3600 },
             }
     );
-    return res.json();
-     
+    const data = await res.json();
+
+  // shrink payload (critical for Lighthouse)
+  return data.map((repo: any) => ({
+    id: repo.id,
+    name: repo.name,
+    html_url: repo.html_url,
+    description: repo.description,
+    stargazers_count: repo.stargazers_count,
+  }));
 }
 
 

@@ -1,5 +1,38 @@
-
 import { getGitHubRepos } from "@/lib/github";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Gérardo AMOUZOUVI - Portfolio",
+  description: "This is Gérardo AMOUZOUVI's portfolio",
+  keywords: ["Gérardo AMOUZOUVI","gerardo amouzouvi","gerardo amouzouvi portfolio","gerardo amouzouvi projects",
+  ],
+
+  robots: { 
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    }
+  },
+  openGraph: {
+    title: "Gérardo AMOUZOUVI - Portfolio",
+    description: "Portfolio of Gérardo AMOUZOUVI, computer science student.",
+    url: "https://gerardo-amouzouvi.vercel.app",
+    siteName: "gerardo-amouzouvi.vercel.app",
+    type: "website",
+    locale: "en_US",
+    //alternateLocale: ["fr_FR"],
+  },
+};
+
+
+
 
 export default async function ProjectsPage() {
   const repos = await getGitHubRepos();

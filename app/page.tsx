@@ -6,7 +6,8 @@ export default async function ProjectsPage() {
 
   return (
     <div className="p-4">
-      <h1 className="text-3xl font-bold mb-4">My GitHub Projects</h1>
+      <h1 className="text-3xl font-bold mb-4">Gérardo AMOUZOUVI's projects</h1>
+      <h2 className="text-3xl font-bold mb-4">GitHub Projects</h2>
       <ul>
         {repos.map((repo: any) => (
           <li key={repo.id} className="mb-2">

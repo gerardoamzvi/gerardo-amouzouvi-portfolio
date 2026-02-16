@@ -6,7 +6,9 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata = {
   title: "Gérardo AMOUZOUVI - Portfolio",
-  description: "My personal portfolio",
+  description: "This is Gérardo AMOUZOUVI's portfolio",
+   keywords: ["Gérardo AMOUZOUVI", "gerardo amouzouvi","gerardo amouzouvi portfolio", "gerardo amouzouvi projects"],
+  type: "website",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

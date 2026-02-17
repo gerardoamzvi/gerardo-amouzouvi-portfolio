@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   description: "This is Gérardo AMOUZOUVI's portfolio website, showcasing projects, skills, and contact information.",
   keywords: ["Gérardo AMOUZOUVI", "gerardo amouzouvi", "gerardo amouzouvi portfolio", "gerardo amouzouvi projects",
   ],
-
   robots: {
     index: true,
     follow: true,
@@ -32,9 +31,7 @@ export const metadata: Metadata = {
   },
 };
 
-
 export const dynamic = "force-static";
-
 
 export default async function ProjectsPage() {
   const filePath = path.join(process.cwd(), "public", "repos.json");

@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/api/update-repos",
-      "schedule": "55 * * * *",
+      "schedule": "0 * * * *",
       "headers": {
         "Authorization": "Bearer ${CRON_SECRET}"
       }

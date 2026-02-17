@@ -32,6 +32,8 @@ export const metadata: Metadata = {
 };
 
 
+
+
 export default async function ProjectsPage() {
   const repos = await getGitHubRepos();
 

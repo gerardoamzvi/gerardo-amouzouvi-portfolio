@@ -10,7 +10,6 @@ export async function getGitHubRepos() {
                 headers: {
                 Authorization: `token ${token}`,
                 },
-                cache: "force-cache",
                 next: { revalidate: 3600 },
             }
     );

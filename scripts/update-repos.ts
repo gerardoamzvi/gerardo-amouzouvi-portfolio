@@ -1,18 +1,14 @@
 import fs from "fs";
-import { getGitHubRepos } from "../lib/github";
-import { NextRequest, NextResponse } from "next/server";
+import { getGitHubRepos } from "@/lib/github";
 
-
-
-export async function GET(req: NextRequest) {
+async function updateReposJSON() {
   try {
-    const repos = await getGitHubRepos(); 
+    const repos = await getGitHubRepos();
     fs.writeFileSync("public/repos.json", JSON.stringify(repos, null, 2));
-
-    return NextResponse.json({ success: true });
-    
+    console.log("✅ repos.json updated!");
   } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: "Failed to update repos" }, { status: 500 });
+    console.error("❌ Failed to update repos:", error);
   }
 }
+
+updateReposJSON();

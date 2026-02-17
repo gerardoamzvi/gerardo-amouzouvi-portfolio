@@ -35,8 +35,8 @@ export const metadata: Metadata = {
 export const dynamic = "force-static";
 export default async function ProjectsPage() {
 
-  //const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/repos.json`);
-  const res = await fetch("/repos.json");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/repos.json`);
+  //const res = await fetch("/repos.json");
   const repos = await res.json();
 
   return (

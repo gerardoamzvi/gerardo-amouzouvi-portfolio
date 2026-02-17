@@ -1,14 +1,15 @@
-import { getGitHubRepos } from "@/lib/github";
+import fs from "fs";
+import path from "path";
 import { Metadata } from "next";
 
 
 export const metadata: Metadata = {
   title: "Gérardo AMOUZOUVI - Portfolio",
   description: "This is Gérardo AMOUZOUVI's portfolio website, showcasing projects, skills, and contact information.",
-  keywords: ["Gérardo AMOUZOUVI","gerardo amouzouvi","gerardo amouzouvi portfolio","gerardo amouzouvi projects",
+  keywords: ["Gérardo AMOUZOUVI", "gerardo amouzouvi", "gerardo amouzouvi portfolio", "gerardo amouzouvi projects",
   ],
 
-  robots: { 
+  robots: {
     index: true,
     follow: true,
     nocache: false,
@@ -33,12 +34,20 @@ export const metadata: Metadata = {
 
 
 export const dynamic = "force-static";
+
+
 export default async function ProjectsPage() {
+  const filePath = path.join(process.cwd(), "public", "repos.json");
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/repos.json`);
-  //const res = await fetch("/repos.json");
-  const repos = await res.json();
+  let repos = [];
 
+  try {
+    const fileData = fs.readFileSync(filePath, "utf-8");
+    repos = JSON.parse(fileData);
+  } catch (error) {
+    console.warn("repos.json not found or invalid, using empty list");
+    repos = [];
+  }
   return (
     <div className="p-4">
       <h1 className="text-3xl font-bold mb-4">Gérardo AMOUZOUVI's projects</h1>

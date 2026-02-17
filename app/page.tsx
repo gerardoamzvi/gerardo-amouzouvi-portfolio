@@ -35,6 +35,8 @@ export const dynamic = "force-static";
 
 
 
+
+
 export default async function ProjectsPage() {
   const filePath = path.join(process.cwd(), "public", "repos.json");
 

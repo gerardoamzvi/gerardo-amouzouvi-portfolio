@@ -4,13 +4,6 @@ import "./globals.css";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
-export const metadata = {
-  title: "Gérardo AMOUZOUVI - Portfolio",
-  description: "This is Gérardo AMOUZOUVI's portfolio",
-   keywords: ["Gérardo AMOUZOUVI", "gerardo amouzouvi","gerardo amouzouvi portfolio", "gerardo amouzouvi projects"],
-  type: "website",
-};
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">

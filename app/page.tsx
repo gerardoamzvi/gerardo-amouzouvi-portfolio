@@ -53,19 +53,21 @@ export default async function ProjectsPage() {
       <h1 className="text-3xl font-bold mb-4">Gérardo AMOUZOUVI's projects</h1>
       <h2 className="text-3xl font-bold mb-4">GitHub Projects</h2>
       <ul>
-        {repos.map((repo: any) => (
-          <li key={repo.id} className="mb-2">
-            <a
-              href={repo.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
-            >
-              {repo.name} ⭐ {repo.stargazers_count}
-            </a>
-            {repo.description && <p>{repo.description}</p>}
-          </li>
-        ))}
+        {repos.length === 0 ? (
+          <p>No projects yet.</p>)
+          : repos.map((repo: any) => (
+            <li key={repo.id} className="mb-2">
+              <a
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline"
+              >
+                {repo.name} ⭐ {repo.stargazers_count}
+              </a>
+              {repo.description && <p>{repo.description}</p>}
+            </li>
+          ))}
       </ul>
     </div>
   );

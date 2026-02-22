@@ -1,4 +1,5 @@
 import fs from "fs";
+import path from "path";
 import { getGitHubRepos } from "@/lib/github";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -13,7 +14,8 @@ export async function GET(req: NextRequest) {
     try {
 
         const repos = await getGitHubRepos();
-        fs.writeFileSync("public/repos.json", JSON.stringify(repos, null, 2));
+        const filePath = path.join(process.cwd(), "public", "repos.json");
+        fs.writeFileSync(filePath, JSON.stringify(repos, null, 2));
 
         return NextResponse.json({ success: true });
 
